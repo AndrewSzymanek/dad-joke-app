@@ -42,7 +42,7 @@ class App extends Component {
            {this.state.items.punchline}
           </div>
           <div id="Button">
-            <button onClick={refreshPage}>Get another joke!</button>
+            <button onClick={refreshPage}>Click for another!</button>
           </div>
         </div>
       );
@@ -51,5 +51,3 @@ class App extends Component {
 }
 
 export default App;
-
-//'https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes/:count'
