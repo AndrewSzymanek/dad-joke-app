@@ -20,25 +20,30 @@ class App extends Component {
           items: json,
         })
       });
+      
     }
 
   render(){
-    var {isLoaded, items} = this.state;
+    var {isLoaded} = this.state;
 
+    function refreshPage(){
+        window.location.reload(false);
+    }
     if(!isLoaded){
       return(<div>Loading...</div>)
     }
     else{
       return (
         <div className="App">
-          <ul>
-            {items.map(item => (
-                <li key={item.id}>
-                  {item.setup}
-                </li>
-            ))};
-          
-          </ul>
+          <div id="Setup">    
+          {this.state.items.setup}
+          </div>     
+          <div id="Punchline">
+           {this.state.items.punchline}
+          </div>
+          <div id="Button">
+            <button onClick={refreshPage}>Get another joke!</button>
+          </div>
         </div>
       );
     }
@@ -46,3 +51,5 @@ class App extends Component {
 }
 
 export default App;
+
+//'https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes/:count'
